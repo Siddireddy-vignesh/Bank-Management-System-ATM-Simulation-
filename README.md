@@ -1,42 +1,82 @@
-Bank Management System (ATM Application)
+A console-based ATM Simulation System built using Java, JDBC, and MS SQL Server.
+This project allows users to create accounts, log in using ATM credentials, and perform essential banking operations securely.
 
-Project Title: Bank Management System (ATM Simulation)
-Technologies: Java, JDBC, MS SQL Server, OOP, Exception Handling
+🚀 Features
 
-Description:
-Developed a fully functional console-based ATM Management System that allows users to create accounts, authenticate using ATM number and PIN, and perform secure banking operations. The backend is built using MS SQL Server, and the application interacts with the database through JDBC using parameterized queries.
+🔐 User Authentication (ATM Number + PIN)
 
-Key Components (Highlighted):
+🆕 Create New Account with auto-generated ATM number
 
-User Authentication System: Login using ATM Number + PIN with validation.
+💰 View Balance
 
-Account Creation Module: Auto-generates a unique 10-digit ATM number and stores credentials securely.
+➕ Deposit Money
 
-ATM Operations:
+➖ Withdraw Money (with validations)
 
-View Balance
+📜 Mini Statement (transaction logs)
 
-Deposit Amount (updates balance + records transaction)
+🗄️ MSSQL Database Integration using JDBC
 
-Withdraw Amount (balance check + 100-multiple validation)
+🧱 Modular code using OOP concepts
 
-Mini Statement (fetching latest transactions in descending order)
+⚠️ Strong error handling and input validation
 
-Database Integration:
+🛠️ Technologies Used
 
-Designed Users and Transactions tables with foreign key relationship.
+Java
 
-Implemented transaction logs with timestamps.
+JDBC
 
-Connected Java to MSSQL using JDBC driver.
+MS SQL Server
 
-Core Java Concepts:
+SQL Queries
 
-Used OOP principles with classes such as DatabaseConnection, AtmOperations, and MainATM.
+Object-Oriented Programming
 
-Used PreparedStatement for secure SQL queries (prevents SQL injection).
+🗂️ Database Structure
+Users Table
+Column	Type	Description
+atm_number	BIGINT	Unique ATM number (PK)
+atm_pin	INT	4-digit PIN
+balance	FLOAT	Current balance
+Transactions Table
+Column	Type	Description
+id	INT (PK)	Auto-increment transaction ID
+atm_number	BIGINT	Linked to Users table (FK)
+type	NVARCHAR	Deposit / Withdraw
+amount	FLOAT	Transaction amount
+date_time	DATETIME	Timestamp
+🔗 Java Files Overview
+✔ DatabaseConnection.java
 
-Added exception handling, input validation, and menu-driven UI.
+Handles connection to MS SQL Server using JDBC.
 
-Outcome:
-Successfully built an end-to-end banking simulation demonstrating strong skills in Java programming, database handling, JDBC connectivity, SQL operations, and modular application design.
+✔ AtmOperations.java
+
+Contains all ATM functions like deposit, withdraw, balance check, and mini statements.
+
+✔ MainATM.java
+
+Menu-driven UI for login, account creation, and ATM interface.
+
+▶️ How to Run
+
+Import the project into VS Code or IntelliJ
+
+Install MS SQL Server & create the database:
+
+CREATE DATABASE ATM_DB;
+
+
+Create required tables
+
+Add the JDBC driver to your project lib folder
+
+Run MainATM.java
+
+📷 Output (Highlights)
+
+✔ Login Screen
+✔ Account Creation
+✔ Deposit / Withdraw
+✔ Mini Statement
